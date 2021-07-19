@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&family=Amatic+SC:wght@400;700&family=Architects+Daughter&family=Fredoka+One&family=Kalam:wght@300&family=Rajdhani:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weatherapp">
+        <div class="row">
+          <div class="col-2">
+            <form id="change-city-form">
+              <input
+                id="search-text-input"
+                type="text"
+                placeholder="Change city"
+                autocomplete="off"
+                autofocus="on"
+                input="search-text"
+              />
+              <input type="submit" value="Search" class="btn btn-secondary" />
+            </form>
+          </div>
+
+          <div class="col-2 location">
+            <form>
+              <input
+                type="submit"
+                value="📍"
+                class="btn btn-secondary location"
+              />
+            </form>
+          </div>
+        </div>
+        <span class="cities">Paris</span>
+        <span class="cities">London</span>
+        <span class="cities">New York</span>
+        <span class="cities">Sydney</span>
+
+        <div class="row">
+          <div class="col-4">
+            <h2 class="currentcity">Tokyo</h2>
+          </div>
+          <div class="col-4">
+            <h3 class="currenttime">
+              currently on <span id="weekday"></span> <br />
+              at <span id="time"></span>
+            </h3>
+          </div>
+          <div class="col-4">
+            <div class="temperature-wrapper">
+              <h4 id="currenttemp">
+                20
+              </h4>
+              <a href="#" class="celsius-link">°C|</a>
+              <a href="#" class="fahrenheit-link">°F</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="extrainfo">
+          Precipitation: 0% <br />
+          Wind:<span id="wind"> 3 </span>km/h
+        </div>
+        <br />
+        <div class="dailyheadline">Hourly forecast</div>
+      </div>
+      <div class="row hourlyforecast">
+        <div class="col-2">
+          11am
+          <strong>20°</strong>
+        </div>
+        <div class="col-2">
+          12pm
+          <strong>19°</strong>
+        </div>
+        <div class="col-2">
+          13pm
+          <strong>21°</strong>
+        </div>
+        <div class="col-2">
+          14pm
+          <strong>24°</strong>
+        </div>
+        <div class="col-2">
+          15pm
+          <strong>26°</strong>
+        </div>
+        <div class="col-2">
+          16pm
+          <strong>30°</strong>
+        </div>
+      </div>
+      <br />
+      <div class="dailyheadline">Daily forecast</div>
+      <div class="row dailyforecast">
+        <div class="col-2">
+          Tue <img src="media/039-sun.png" alt="" class="icons" />
+          <strong>23°</strong> 16°
+        </div>
+        <div class="col-2">
+          Wed <img src="media/038-cloudy-3.png" alt="" class="icons" />
+          <strong>19°</strong> 14°
+        </div>
+        <div class="col-2">
+          Thu <img src="media/011-cloudy.png" alt="" class="icons" />
+          <strong>21°</strong> 17°
+        </div>
+        <div class="col-2">
+          Fri <img src="media/034-cloudy-1.png" alt="" class="icons" />
+          <strong>24°</strong> 19°
+        </div>
+        <div class="col-2">
+          Sat <img src="media/039-sun.png" alt="" class="icons" />
+          <strong>26°</strong> 21°
+        </div>
+        <div class="col-2">
+          Sun <img src="media/043-warm.png" alt="" class="icons" />
+          <strong>30°</strong> 21°
+        </div>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>

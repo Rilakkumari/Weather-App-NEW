@@ -1,0 +1,157 @@
+.container {
+  padding: 34px;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+  font-family: "Rajdhani", sans-serif;
+  border: 2px solid #385170;
+  margin: 20px auto;
+  width: 580px;
+  border-radius: 8px;
+}
+
+.btn-secondary,
+.cities,
+.currentcity,
+.currenttime,
+.extrainfo,
+.hourlyforecast,
+.dailyforecast {
+  color: #385170;
+}
+
+.col-2 {
+  font-size: 23px;
+}
+
+.btn-secondary {
+  padding: 7px;
+  width: 110px;
+  background: #e0e0e0;
+  margin-left: 220px;
+  margin-top: -74px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location {
+  width: 34px;
+  margin-left: 190px;
+  margin-top: 0px;
+}
+
+.cities {
+  padding: 23px;
+  font-weight: 400;
+  transition: all 200ms ease;
+  font-size: 18px;
+}
+
+.cities:hover {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.currentcity {
+  margin-top: 50px;
+  font-weight: bolder;
+}
+
+.currentcity {
+  font-size: 77px;
+  margin-left: 0px;
+}
+
+.currenttime {
+  font-size: 16px;
+  width: 77px;
+  margin: 69px;
+  margin-left: 137px;
+  text-align: center;
+}
+
+#currenttemp {
+  font-size: 77px;
+  margin-top: 51px;
+  margin-left: 180px;
+  color: #385170;
+  margin-top: 50px;
+  font-weight: bolder;
+}
+
+.extrainfo {
+  text-align: right;
+  margin-top: -69px;
+  font-size: 15px;
+  margin-right: 11px;
+}
+
+.hourlyheadline,
+.dailyheadline {
+  margin-left: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #385170;
+  font-weight: bolder;
+}
+
+.hourlyforecast,
+.dailyforecast {
+  width: 505px;
+  padding: 8px;
+  margin: auto 0;
+  border-radius: 8px;
+  border: 2px solid #385170;
+  font-size: 23px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hourlytemperature,
+.dailytemperature {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.hourlyforecast {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 232, 182) 0%,
+    rgb(254, 255, 165) 90%
+  );
+}
+
+.dailyforecast {
+  font-size: 28px;
+  letter-spacing: 2px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(254, 255, 165) 0%,
+    rgb(255, 232, 182) 90%
+  );
+}
+
+.icons {
+  width: 30px;
+}
+
+.celsius-link {
+  font-size: 25px;
+  margin-top: 60px;
+}
+
+.fahrenheit-link {
+  font-size: 25px;
+  margin-top: 60px;
+}
+
+.temperature-wrapper {
+  display: flex;
+}
+.col-4 {
+  width: 100px;
+}
