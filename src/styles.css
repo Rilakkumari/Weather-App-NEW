@@ -141,11 +141,13 @@
 .celsius-link {
   font-size: 20px;
   margin-top: 69px;
+  text-decoration: none;
 }
 
 .fahrenheit-link {
   font-size: 20px;
   margin-top: 69px;
+  text-decoration: none;
 }
 
 .temperature-wrapper {
@@ -157,4 +159,11 @@
 .float-left {
   display: block;
   margin-left: 32px;
+}
+.temperature-wrapper .active {
+  color: #385170;
+  cursor: default;
+}
+.temperature-wrapper .active:hover {
+  text-decoration: none;
 }

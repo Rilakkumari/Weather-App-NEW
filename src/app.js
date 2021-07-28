@@ -41,26 +41,6 @@ let form = document.querySelector("#change-city-form");
 
 form.addEventListener("submit", search);
 
-//Bonus Homework
-
-function fConvert(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".currenttemp");
-  tempElement.innerHTML = 40;
-}
-
-function cConvert(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".currenttemp");
-  tempElement.innerHTML = 23;
-}
-
-let cLink = document.querySelector(".celsius-link");
-cLink.addEventListener("click", cConvert);
-
-let fLink = document.querySelector(".fahrenheit-link");
-fLink.addEventListener("click", fConvert);
-
 //Temperature, icons and extra info
 
 function showTemperature(response) {
@@ -71,6 +51,9 @@ function showTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   localTemperature.innerHTML = `${temperature}`;
   h2.innerHTML = `${cityRequest}`;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -94,3 +77,30 @@ function showCity(event) {
 
 let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
+
+//Units
+
+function fConvert(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#currenttemp");
+  cLink.classList.remove("active");
+  fLink.classList.add("active");
+  let fahrenheitTemperature = (14 * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function cConvert(event) {
+  event.preventDefault();
+  cLink.classList.add("active");
+  fLink.classList.remove("active");
+  let tempElement = document.querySelector("#currenttemp");
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fLink = document.querySelector(".fahrenheit-link");
+fLink.addEventListener("click", fConvert);
+
+let cLink = document.querySelector(".celsius-link");
+cLink.addEventListener("click", cConvert);
