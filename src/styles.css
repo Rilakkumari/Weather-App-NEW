@@ -55,7 +55,6 @@
 }
 
 .currentcity {
-  margin-top: 50px;
   font-weight: bolder;
 }
 
@@ -75,9 +74,9 @@
 #currenttemp {
   font-size: 60px;
   margin-top: 51px;
-  margin-left: 180px;
+  margin-left: 202px;
   color: #385170;
-  margin-top: 50px;
+  margin-top: 64px;
   font-weight: bolder;
 }
 
@@ -140,13 +139,13 @@
 }
 
 .celsius-link {
-  font-size: 25px;
-  margin-top: 60px;
+  font-size: 20px;
+  margin-top: 69px;
 }
 
 .fahrenheit-link {
-  font-size: 25px;
-  margin-top: 60px;
+  font-size: 20px;
+  margin-top: 69px;
 }
 
 .temperature-wrapper {
@@ -154,4 +153,8 @@
 }
 .col-4 {
   width: 100px;
+}
+.float-left {
+  display: block;
+  margin-left: 32px;
 }

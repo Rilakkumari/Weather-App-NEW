@@ -61,7 +61,7 @@ cLink.addEventListener("click", cConvert);
 let fLink = document.querySelector(".fahrenheit-link");
 fLink.addEventListener("click", fConvert);
 
-//Engine
+//Temperature, icons and extra info
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -80,7 +80,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-
+//Search function
 function showCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
