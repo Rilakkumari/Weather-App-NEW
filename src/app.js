@@ -70,10 +70,15 @@ function showTemperature(response) {
   let h2 = document.querySelector("h2");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
   localTemperature.innerHTML = `${temperature}`;
   h2.innerHTML = `${cityRequest}`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function showCity(event) {
