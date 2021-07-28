@@ -10,7 +10,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 let day = days[now.getDay()];
@@ -63,17 +63,17 @@ fLink.addEventListener("click", fConvert);
 
 //Engine
 
-let apiKey = "663df824629c10b5cb37f18468e84501";
-let city = "Berlin";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityRequest = `${response.data.name}`;
   let localTemperature = document.querySelector("#currenttemp");
   let h2 = document.querySelector("h2");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   localTemperature.innerHTML = `${temperature}`;
   h2.innerHTML = `${cityRequest}`;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function showCity(event) {
