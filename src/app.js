@@ -54,7 +54,7 @@ function showTemperature(response) {
 
   city.innerHTML = response.data.name;
   localTemperature.innerHTML = Math.round(response.data.main.temp);
-  humidityElement.innerHTML = `${Math.round(response.data.main.humidity)} %`;
+  humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}%`;
   windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/H`;
   iconElement.setAttribute(
     "src",
