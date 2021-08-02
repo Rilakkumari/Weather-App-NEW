@@ -42,11 +42,12 @@ let form = document.querySelector("#change-city-form");
 form.addEventListener("submit", search);
 
 //Temperature, icons and extra info
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  
+
   let forecastHTML = `<div class= "row">`;
   days.forEach(function (day) {
     forecastHTML =
@@ -66,6 +67,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
 function showTemperature(response) {
   let city = document.querySelector("h2");
   let localTemperature = document.querySelector("#currenttemp");
@@ -83,6 +92,8 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 //Search function
@@ -125,8 +136,6 @@ let cLink = document.querySelector(".celsius-link");
 cLink.addEventListener("click", cConvert);
 
 let celsiusTemperature = null;
-
-displayForecast();
 
 //function changeCitiesParis(event) {
 //event.preventDefault();
