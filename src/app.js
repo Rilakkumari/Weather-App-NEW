@@ -60,8 +60,6 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  
 }
 
 //Search function
@@ -104,3 +102,16 @@ let cLink = document.querySelector(".celsius-link");
 cLink.addEventListener("click", cConvert);
 
 let celsiusTemperature = null;
+
+//function changeCitiesParis(event) {
+//event.preventDefault();
+//let apiKey = "663df824629c10b5cb37f18468e84501";
+//let units = "metric";
+//let cityName = Paris;
+//let apiUrlSearch = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+
+//axios.get(`${apiUrlSearch}&appid=${apiKey}`).then(showTemperature);
+//}
+//let parisElement = document.querySelector(".paris");
+//parisElement.innerHTML = changeCitiesParis;
+//parisElement.addEventListener(".paris", search);
