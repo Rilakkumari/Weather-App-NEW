@@ -44,26 +44,25 @@ form.addEventListener("submit", search);
 //Temperature, icons and extra info
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let cityRequest = `${response.data.name}`;
+  let city = document.querySelector("h2");
   let localTemperature = document.querySelector("#currenttemp");
-  let h2 = document.querySelector("h2");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
-  localTemperature.innerHTML = `${temperature}`;
-  h2.innerHTML = `${cityRequest}`;
+  city.innerHTML = response.data.name;
+  localTemperature.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-}
 
+  
+}
 
 //Search function
 function showCity(event) {
@@ -79,8 +78,6 @@ function showCity(event) {
 
 let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
-
-
 
 //Units
 
