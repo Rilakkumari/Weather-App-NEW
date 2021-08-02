@@ -87,17 +87,8 @@
   margin-right: 11px;
 }
 
-.hourlyheadline,
-.dailyheadline {
-  margin-left: 4px;
-  font-size: 18px;
-  font-weight: 400;
-  color: #385170;
-  font-weight: bolder;
-}
-
 .hourlyforecast,
-.dailyforecast {
+.weather-forecast {
   width: 505px;
   padding: 8px;
   margin: auto 0;
@@ -110,10 +101,20 @@
 }
 
 .hourlytemperature,
-.dailytemperature {
+.weather-forecast-temperature-max .weather-forecast-temperature-min {
   font-size: 25px;
   text-align: center;
   font-weight: 500;
+}
+
+.weather-forecast {
+  font-size: 28px;
+  letter-spacing: 2px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(254, 255, 165) 0%,
+    rgb(255, 232, 182) 90%
+  );
 }
 
 .hourlyforecast {
@@ -124,15 +125,6 @@
   );
 }
 
-.dailyforecast {
-  font-size: 28px;
-  letter-spacing: 2px;
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(254, 255, 165) 0%,
-    rgb(255, 232, 182) 90%
-  );
-}
 
 .icons {
   width: 30px;
