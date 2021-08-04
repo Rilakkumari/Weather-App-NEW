@@ -110,3 +110,13 @@ let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
 
 searchCity("Tokyo");
+
+function showPosition(position) {
+  console.log(position);
+}
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let button = document.querySelector("location");
+button.addEventListener("click", getCurrentPosition);
