@@ -115,7 +115,6 @@ function updateTemperature(requestedCity, unit) {
   axios.get(apiUrl).then(updateTempElement);
 }
 
-
 function updateTempElement(response) {
   let tempElement = document.querySelector("#currenttemp");
   tempElement.innerHTML = Math.round(response.data.main.temp);
@@ -140,14 +139,8 @@ function showPosition(position) {
   axios.get(apiUrl).then(updateWeather);
 }
 
-function resetInputValue() {
-  let inputElement = document.querySelector("#search-text-input");
-  inputElement.value = ``;
-}
-
 function getCurrentPosition(event) {
   event.preventDefault();
-  resetInputValue();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
