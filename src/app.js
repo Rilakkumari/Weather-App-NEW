@@ -15,7 +15,13 @@ weekday.innerHTML = `${day}`;
 let here = new Date();
 let header = document.querySelector("time");
 let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 time.innerHTML = `${hours}:${minutes}`;
 //Homework 2
 function search(event) {
