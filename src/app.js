@@ -187,5 +187,25 @@ function sydneyPosition(position) {
 let sydneyButton = document.querySelector("#sydney");
 sydneyButton.addEventListener("click", sydneyPosition);
 
-
 //Hourly Forecast
+function displayHourlyForecast() {
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+
+  let hours = ["11am", "12pm", "13pm", "14pm", "15pm", "16pm"];
+  let hourlyForecastHTML = `<div class="row"> `;
+  hours.forEach(function (hour) {
+    hourlyForecastHTML =
+      hourlyForecastHTML +
+      `
+    <div class="col-2">
+      ${hour}
+      <strong>20°</strong>
+    </div>
+  `;
+  });
+
+  hourlyForecastHTML = hourlyForecastHTML + ` </div>`;
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
+}
+
+displayHourlyForecast();
