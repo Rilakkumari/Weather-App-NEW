@@ -60,7 +60,8 @@
 
 .currentcity {
   font-size: 60px;
-  margin-left: 0px;
+  margin-left: 17px;
+  margin-top: -14px;
 }
 
 .currenttime {
@@ -73,8 +74,7 @@
 
 #currenttemp {
   font-size: 60px;
-  margin-top: 51px;
-  margin-left: 202px;
+  margin-left: 222px;
   color: #385170;
   margin-top: 64px;
   font-weight: bolder;
@@ -149,7 +149,8 @@
 }
 .float-left {
   display: block;
-  margin-left: 32px;
+  margin-left: 54px;
+  margin-top: -20px;
 }
 .temperature-wrapper .active {
   color: #385170;
@@ -160,5 +161,5 @@
 }
 .signature {
   margin-top: 20px;
-  margin-bottom: -41px;
+  margin-bottom: -10px;
 }
