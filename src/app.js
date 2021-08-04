@@ -186,3 +186,6 @@ function sydneyPosition(position) {
 
 let sydneyButton = document.querySelector("#sydney");
 sydneyButton.addEventListener("click", sydneyPosition);
+
+
+//Hourly Forecast
