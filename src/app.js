@@ -112,12 +112,7 @@ function updateTemperature(requestedCity, unit) {
   let apiKey = "663df824629c10b5cb37f18468e84501";
   let root = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
   let apiUrl = `${root}&q=${requestedCity}&units=${unit}`;
-  axios.get(apiUrl).then(updateTempElement);
-}
-
-function updateTempElement(response) {
-  let tempElement = document.querySelector("#currenttemp");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function updateWeather(response) {
@@ -134,9 +129,8 @@ function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "663df824629c10b5cb37f18468e84501";
-  let root = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
-  let apiUrl = `${root}&lat=${lat}&lon=${lon}`;
-  axios.get(apiUrl).then(updateWeather);
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  axios.get(apiGeoUrl).then(updateWeather);
 }
 
 function getCurrentPosition(event) {
