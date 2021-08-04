@@ -108,24 +108,5 @@ function searchCity(cityName) {
 }
 let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
-//Units
-function fConvert(event) {
-  event.preventDefault();
-  cLink.classList.remove("active");
-  fLink.classList.add("active");
-  let tempElement = document.querySelector("#currenttemp");
-  tempElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-}
-function cConvert(event) {
-  event.preventDefault();
-  cLink.classList.add("active");
-  fLink.classList.remove("active");
-  let tempElement = document.querySelector("#currenttemp");
-  tempElement.innerHTML = Math.round(celsiusTemperature);
-}
-let fLink = document.querySelector(".fahrenheit-link");
-fLink.addEventListener("click", fConvert);
-let cLink = document.querySelector(".celsius-link");
-cLink.addEventListener("click", cConvert);
-let celsiusTemperature = null;
+
 searchCity("Tokyo");
