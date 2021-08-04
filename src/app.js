@@ -69,10 +69,8 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "663df824629c10b5cb37f18468e84501";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -110,13 +108,48 @@ let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
 
 searchCity("Tokyo");
+function updateTemperature(requestedCity, unit) {
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let root = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
+  let apiUrl = `${root}&q=${requestedCity}&units=${unit}`;
+  axios.get(apiUrl).then(updateTempElement);
+}
+
+
+function updateTempElement(response) {
+  let tempElement = document.querySelector("#currenttemp");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
+}
+
+function updateWeather(response) {
+  let inputElement = document.querySelector("#search-text-input");
+  inputElement.value = response.data.name;
+
+  let cityElement = document.querySelector("#currentcity");
+  cityElement.innerHTML = response.data.name;
+
+  updateTemperature(response.data.name, "metric");
+}
 
 function showPosition(position) {
-  console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let root = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
+  let apiUrl = `${root}&lat=${lat}&lon=${lon}`;
+  axios.get(apiUrl).then(updateWeather);
 }
-function getCurrentPosition() {
+
+function resetInputValue() {
+  let inputElement = document.querySelector("#search-text-input");
+  inputElement.value = ``;
+}
+
+function getCurrentPosition(event) {
+  event.preventDefault();
+  resetInputValue();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let button = document.querySelector("location");
-button.addEventListener("click", getCurrentPosition);
+let geolocationbutton = document.querySelector("#geolocation");
+geolocationbutton.addEventListener("click", getCurrentPosition);
