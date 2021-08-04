@@ -37,6 +37,7 @@ function search(event) {
 let form = document.querySelector("#change-city-form");
 form.addEventListener("submit", search);
 //Temperature, icons and extra info
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -45,9 +46,43 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function formatHour(timestamp) {
+  let time = new Date(timestamp * 1000);
+  let forecastHour = now.getTime();
+  let forecastHours = [
+    "1am",
+    "2am",
+    "3am",
+    "4am",
+    "5am",
+    "6am",
+    "7am",
+    "8am",
+    "9am",
+    "10am",
+    "11am",
+    "12pm",
+    "13pm",
+    "14pm",
+    "15pm",
+    "16pm",
+    "17pm",
+    "18pm",
+    "19pm",
+    "20pm",
+    "21pm",
+    "22pm",
+    "23pm",
+    "24pm",
+  ];
+  return forecastHours[forecastHour];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
+  let hourlyForecast = response.data.hourly;
   let forecastElement = document.querySelector("#forecast");
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   let forecastHTML = `<div class= "row">`;
   forecast.forEach(function (forecastDay, index) {
@@ -71,14 +106,29 @@ function displayForecast(response) {
       </div>`;
     }
   });
+
+  let hourlyForecastHTML = `<div class="row"> `;
+  hourlyForecast.forEach(function (forecastHour) {
+    hourlyForecastHTML =
+      hourlyForecastHTML +
+      `
+    <div class="col-2">
+      ${forecastHour.dt}
+      <strong>${forecastHour.temp}</strong>
+    </div>
+  `;
+  });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  hourlyForecastHTML = hourlyForecastHTML + ` </div>`;
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
 }
+
 function getForecast(coordinates) {
   let apiKey = "663df824629c10b5cb37f18468e84501";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
-  console.log(coordinates);
 }
 
 function showTemperature(response) {
@@ -187,27 +237,3 @@ function sydneyPosition(position) {
 
 let sydneyButton = document.querySelector("#sydney");
 sydneyButton.addEventListener("click", sydneyPosition);
-
-//Hourly Forecast
-
-function displayHourlyForecast() {
-  let hourlyForecastElement = document.querySelector("#hourly-forecast");
-
-  let hours = ["11am", "12pm", "13pm", "14pm", "15pm", "16pm"];
-  let hourlyForecastHTML = `<div class="row"> `;
-  hours.forEach(function (hour) {
-    hourlyForecastHTML =
-      hourlyForecastHTML +
-      `
-    <div class="col-2">
-      ${hour}
-      <strong>20°</strong>
-    </div>
-  `;
-  });
-
-  hourlyForecastHTML = hourlyForecastHTML + ` </div>`;
-  hourlyForecastElement.innerHTML = hourlyForecastHTML;
-}
-
-displayHourlyForecast();
