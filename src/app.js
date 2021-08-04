@@ -78,6 +78,7 @@ function getForecast(coordinates) {
   let apiKey = "663df824629c10b5cb37f18468e84501";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+  console.log(coordinates);
 }
 
 function showTemperature(response) {
@@ -188,6 +189,7 @@ let sydneyButton = document.querySelector("#sydney");
 sydneyButton.addEventListener("click", sydneyPosition);
 
 //Hourly Forecast
+
 function displayHourlyForecast() {
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
 
