@@ -80,7 +80,7 @@ function showTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = Math.round(response.data.main.temp);
   city.innerHTML = response.data.name;
   localTemperature.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}%`;
@@ -108,29 +108,16 @@ let formSearcher = document.querySelector("form");
 formSearcher.addEventListener("submit", showCity);
 
 searchCity("Tokyo");
-function updateTemperature(requestedCity, unit) {
-  let apiKey = "663df824629c10b5cb37f18468e84501";
-  let root = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
-  let apiUrl = `${root}&q=${requestedCity}&units=${unit}`;
-  axios.get(apiUrl).then(showTemperature);
-}
 
-function updateWeather(response) {
-  let inputElement = document.querySelector("#search-text-input");
-  inputElement.value = response.data.name;
-
-  let cityElement = document.querySelector("#currentcity");
-  cityElement.innerHTML = response.data.name;
-
-  updateTemperature(response.data.name, "metric");
-}
+//Geolocation
 
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
+  let units = "metric";
   let apiKey = "663df824629c10b5cb37f18468e84501";
-  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-  axios.get(apiGeoUrl).then(updateWeather);
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiGeoUrl).then(showTemperature);
 }
 
 function getCurrentPosition(event) {
