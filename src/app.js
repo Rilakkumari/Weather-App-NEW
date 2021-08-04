@@ -127,3 +127,56 @@ function getCurrentPosition(event) {
 
 let geolocationbutton = document.querySelector("#geolocation");
 geolocationbutton.addEventListener("click", getCurrentPosition);
+
+//Paris City Button
+
+function parisPosition(position) {
+  let lat = `48.8534`;
+  let lon = `2.3488`;
+  let units = "metric";
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiGeoUrl).then(showTemperature);
+}
+
+let parisButton = document.querySelector("#paris");
+parisButton.addEventListener("click", parisPosition);
+
+//London
+function londonPosition(position) {
+  let lat = `51.5085`;
+  let lon = `-0.1257`;
+  let units = "metric";
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiGeoUrl).then(showTemperature);
+}
+
+let londonButton = document.querySelector("#london");
+londonButton.addEventListener("click", londonPosition);
+
+//NY
+function nyPosition(position) {
+  let lat = `40.7143`;
+  let lon = `-74.006`;
+  let units = "metric";
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiGeoUrl).then(showTemperature);
+}
+
+let nyButton = document.querySelector("#ny");
+nyButton.addEventListener("click", nyPosition);
+
+//Sydney
+function sydneyPosition(position) {
+  let lat = `-33.8679`;
+  let lon = `151.2073`;
+  let units = "metric";
+  let apiKey = "663df824629c10b5cb37f18468e84501";
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiGeoUrl).then(showTemperature);
+}
+
+let sydneyButton = document.querySelector("#sydney");
+sydneyButton.addEventListener("click", sydneyPosition);
