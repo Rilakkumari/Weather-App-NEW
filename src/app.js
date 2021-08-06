@@ -115,7 +115,7 @@ function displayForecast(response) {
         `
     <div class="col-2">
       ${forecastHour.dt}
-      <strong>${forecastHour.temp}</strong>
+      <strong>${Math.round(forecastHour.temp)}°</strong>
     </div>
   `;
     }
