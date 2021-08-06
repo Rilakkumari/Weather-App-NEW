@@ -108,15 +108,17 @@ function displayForecast(response) {
   });
 
   let hourlyForecastHTML = `<div class="row"> `;
-  hourlyForecast.forEach(function (forecastHour) {
-    hourlyForecastHTML =
-      hourlyForecastHTML +
-      `
+  hourlyForecast.forEach(function (forecastHour, index) {
+    if (index < 6) {
+      hourlyForecastHTML =
+        hourlyForecastHTML +
+        `
     <div class="col-2">
       ${forecastHour.dt}
       <strong>${forecastHour.temp}</strong>
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
