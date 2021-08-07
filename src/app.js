@@ -1,4 +1,3 @@
-//Homework 1
 let now = new Date();
 let heading = document.querySelector("weekday");
 let days = [
@@ -23,7 +22,7 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 time.innerHTML = `${hours}:${minutes}`;
-//Homework 2
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
@@ -36,7 +35,6 @@ function search(event) {
 }
 let form = document.querySelector("#change-city-form");
 form.addEventListener("submit", search);
-//Temperature, icons and extra info
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -168,8 +166,6 @@ formSearcher.addEventListener("submit", showCity);
 
 searchCity("Tokyo");
 
-//Geolocation
-
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -187,8 +183,6 @@ function getCurrentPosition(event) {
 let geolocationbutton = document.querySelector("#geolocation");
 geolocationbutton.addEventListener("click", getCurrentPosition);
 
-//Paris City Button
-
 function parisPosition(position) {
   let lat = `48.8534`;
   let lon = `2.3488`;
@@ -201,7 +195,6 @@ function parisPosition(position) {
 let parisButton = document.querySelector("#paris");
 parisButton.addEventListener("click", parisPosition);
 
-//London
 function londonPosition(position) {
   let lat = `51.5085`;
   let lon = `-0.1257`;
@@ -214,20 +207,18 @@ function londonPosition(position) {
 let londonButton = document.querySelector("#london");
 londonButton.addEventListener("click", londonPosition);
 
-//NY
-function nyPosition(position) {
-  let lat = `40.7143`;
-  let lon = `-74.006`;
+function tokyoPosition(position) {
+  let lat = `35.6895`;
+  let lon = `139.6917`;
   let units = "metric";
   let apiKey = "663df824629c10b5cb37f18468e84501";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiGeoUrl).then(showTemperature);
 }
 
-let nyButton = document.querySelector("#ny");
-nyButton.addEventListener("click", nyPosition);
+let tokyoButton = document.querySelector("#ny");
+tokyoButton.addEventListener("click", tokyoPosition);
 
-//Sydney
 function sydneyPosition(position) {
   let lat = `-33.8679`;
   let lon = `151.2073`;
