@@ -1,9 +1,9 @@
 .container {
   padding: 34px;
   background: radial-gradient(
-    rgb(213, 228, 233) 17%,
-    rgb(124, 170, 224) 64%,
-    rgb(82 142 191) 97%
+    rgb(226 235 244) 17%,
+    rgb(177 206 228) 64%,
+    rgb(131 165 224) 97%
   );
   font-family: "Rajdhani", sans-serif;
   border: 2px solid #385170;
