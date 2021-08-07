@@ -48,32 +48,32 @@ function formatDay(timestamp) {
 
 function formatHour(timestamp) {
   let time = new Date(timestamp * 1000);
-  let forecastHour = now.getTime();
+  let forecastHour = time.getHours();
   let forecastHours = [
-    "1am",
-    "2am",
-    "3am",
-    "4am",
-    "5am",
-    "6am",
-    "7am",
-    "8am",
-    "9am",
-    "10am",
-    "11am",
-    "12pm",
-    "13pm",
-    "14pm",
-    "15pm",
-    "16pm",
-    "17pm",
-    "18pm",
-    "19pm",
-    "20pm",
-    "21pm",
-    "22pm",
-    "23pm",
-    "24pm",
+    "1:00",
+    "2:00",
+    "3:00",
+    "4:00",
+    "5:00",
+    "6:00",
+    "7:00",
+    "8:00",
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00",
+    "24:00",
   ];
   return forecastHours[forecastHour];
 }
@@ -114,7 +114,7 @@ function displayForecast(response) {
         hourlyForecastHTML +
         `
     <div class="col-2">
-      ${forecastHour.dt}
+      ${formatHour(forecastHour.dt)}
       <strong>${Math.round(forecastHour.temp)}°</strong>
     </div>
   `;
