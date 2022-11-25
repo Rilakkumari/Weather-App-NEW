@@ -166,6 +166,7 @@ formSearcher.addEventListener("submit", showCity);
 
 searchCity("Tokyo");
 
+
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
